@@ -90,21 +90,21 @@ int main(void)
   Demo_Init();
   
   //Put the number to dial: in this demo, my cell 11 985650055
-  num[0] =  0;
-  num[1] =  2;
-  num[2] =  1;
-  num[3] =  1;
-  num[4] =  1;
-  num[5] =  9;
-  num[6] =  8;
+  num[0] =  9;
+  num[1] =  8;
+  num[2] =  5;
+  num[3] =  6;
+  num[4] =  5;
+  num[5] =  0;
+  num[6] =  0;
   num[7] =  5;
-  num[8] =  6;
-  num[9] =  5;
-  num[10] = 0;
-  num[11] = 0;
-  num[12] = 5;
-  num[13] = 5;
-  num[14] = 0xFF;	
+  num[8] =  5;
+  num[9] =  0xFF;
+//  num[10] = 0;
+//  num[11] = 0;
+//  num[12] = 5;
+//  num[13] = 5;
+//  num[14] = 0xFF;	
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -118,6 +118,8 @@ int main(void)
     if (dial_flag)
     {
       Dial_Number(&num[0]);
+      HAL_Delay(2000);
+//      dial_flag =1;
     }
   }
   /* USER CODE END 3 */
@@ -186,7 +188,7 @@ void Break_Tone (void)
   HAL_TIM_PWM_Stop(&htim1,TIM_CHANNEL_1);
   HAL_TIM_Base_Stop_IT(&htim1);
   HAL_GPIO_WritePin(DTMF_OUT_GPIO_Port, DTMF_OUT_Pin, GPIO_PIN_RESET);
-  t_tone = 500;
+  t_tone = 100;
   
   HAL_Delay(t_tone);
 }
